@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Dokumentasi A4</title>
+    <!-- Memanggil file CSS dari folder css -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div class="layout-wrapper">
+        <!-- Sidebar Kiri -->
+        <div class="sidebar">
+            <button class="btn-sidebar btn-print" onclick="window.print()">🖨️ Cetak (Print)</button>
+            <button class="btn-sidebar btn-save" onclick="saveDataToFile()">💾 Simpan File</button>
+            
+            <input type="file" id="fileLoader" accept=".json" style="display: none;" onchange="loadDataFromFile(event)">
+            <button class="btn-sidebar btn-load" onclick="document.getElementById('fileLoader').click()">📂 Buka File (Load)</button>
+        </div>
+
+        <!-- Area Kertas A4 -->
+        <div class="a4-paper">
+            <!-- FITUR BARU: Judul sekarang bisa diklik dan diedit -->
+            <h2 id="docTitle" contenteditable="true" title="Klik untuk mengubah judul">DOKUMENTASI ......</h2>
+
+            <table id="docTable">
+                <tbody id="tableBody">
+                    <!-- Baris akan diisi oleh JavaScript -->
+                </tbody>
+            </table>
+
+            <div class="action-buttons">
+                <button class="btn-add" onclick="addRow()">+ Tambah Baris Dokumentasi</button>
+                <button class="btn-remove-last" onclick="removeLastRow()">- Hapus Dokumentasi Terakhir</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Memanggil file JavaScript dari folder js -->
+    <script src="js/script.js"></script>
+</body>
+</html>
